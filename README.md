@@ -13,4 +13,4 @@ Jquery.json2html is a jquery plug-in that implements the HTML templating engine 
 
 Example
 ------------------
-Look at index.html
+(http://www.bigorno.fr/vertical-timeline-json/)
