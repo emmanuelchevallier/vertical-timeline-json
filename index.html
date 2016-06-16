@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- Json2html -->
+    <script src="js/json2html.js"></script>
+    <script src="js/jquery.json2html.js"></script>
+	
+	<title>Responsive Vertical Timeline with Json2html</title>
+	
+	</head>
+<body>
+	<header>
+		<h1>Responsive Vertical Timeline with Json2html</h1>
+	</header>
+	
+	<section id="cd-timeline" class="cd-container">
+	</section>
+</body>
+
+<script type="text/javascript">
+    //JSON Data 
+    var data = [
+	{'img-src':'img/cd-icon-picture.svg',
+	'img-alt':'Picture',
+	'div-img-class':'cd-picture',
+	'title':'Title of section 1',
+	'content':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.',
+	'button-txt':'Read more',
+	'date-txt':'Jan 14'
+	},	
+	{'img-src':'img/cd-icon-movie.svg',
+	'img-alt':'Movie',
+	'div-img-class':'cd-movie',
+	'title':'Title of section 2',
+	'content':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.',
+	'button-txt':'Read more',
+	'date-txt':'Jan 18'
+	},	
+	{'img-src':'img/cd-icon-picture.svg',
+	'img-alt':'Movie',
+	'div-img-class':'cd-picture',
+	'title':'Title of section 3',
+	'content':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.',
+	'button-txt':'Read more',
+	'date-txt':'Jan 24'
+	},	
+	{'img-src':'img/cd-icon-location.svg',
+	'img-alt':'Location',
+	'div-img-class':'cd-location',
+	'title':'Title of section 4',
+	'content':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.',
+	'button-txt':'Read more',
+	'date-txt':'Feb 14'
+	}	
+	];
+	
+	//JSON2HTML Transforms
+    var transforms = {
+        
+		"timeline": [
+				{"<>":"div","class":"cd-timeline-block","html":[
+					{"<>":"div","class":"cd-timeline-img ${div-img-class}","html":[
+						{"<>":"img","src":"${img-src}", "alt":"${img-alt}"}
+					]},
+					
+					{"<>":"div","class":"cd-timeline-content","html":[
+						{"<>":"h2","html":"${title}"},
+						{"<>":"p","html":"${content}"},
+						{"<>":"a","href":"#0","class":"cd-read-more","html":"${button-txt}"},
+						{"<>":"span","class":"cd-date","html":"${date-txt}"}
+					]}
+				]}
+		]
+	};
+	
+    $(function(){
+        $('#cd-timeline').json2html(data,transforms.timeline);
+    });
+</script>
+</html>
