@@ -10,7 +10,3 @@ and including icons from Nucleo Library https://nucleoapp.com, it use also SASS,
 Modernizr http://modernizr.com/.
 
 Jquery.json2html is a jquery plug-in that implements the HTML templating engine <a href='https://github.com/moappi/json2html'>json2html</a>.
-
-Example
-------------------
-http://www.bigorno.fr/vertical-timeline-json/
